@@ -1,6 +1,5 @@
-﻿using Dogat_backend_net_core.Adapters;
-using Dogat_backend_net_core.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Dogat_backend_net_core.Models;
+using Dogat_backend_net_core.Models.Publicaciones;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dogat_backend_net_core.Controllers

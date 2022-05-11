@@ -38,7 +38,7 @@ CREATE TABLE Planes(
 
 CREATE TABLE Usuarios (
 	Id int IDENTITY(1,1) NOT NULL,
-	Cedula_Nit varchar UNIQUE NOT NULL,
+	Cedula_Nit varchar(15) UNIQUE NOT NULL,
 	Nombre varchar(30) NOT NULL,
 	Correo varchar(30) UNIQUE NOT NULL,
 	Contrasena varchar(30) NOT NULL,
@@ -46,6 +46,7 @@ CREATE TABLE Usuarios (
 	FechaVencimiento DateTime NULL,
 	PublicacionesRestantes int NULL,
 	Rol int NOT NULL, -- 1: Admin, 2: Cliente
+	Autorizado bit DEFAULT 0,
 	PRIMARY KEY (Id),
 	FOREIGN KEY (PlanActivoId) REFERENCES Planes(Id)
 );
@@ -56,7 +57,7 @@ CREATE TABLE Compras (
 	PlanId int NOT NULL,
 	FechaCompra DateTime NOT NULL,
 	Valor float NOT NULL,
-	Visible bit DEFAULT 0,
+	Visible bit DEFAULT 1,
 	Observacion varchar(200),
 	PRIMARY KEY (Id),
 	FOREIGN KEY (UsuarioId) REFERENCES Usuarios(Id),
@@ -87,3 +88,15 @@ CREATE TABLE Fotos (
 	PRIMARY KEY (Id),
 	FOREIGN KEY (PublicacionId) REFERENCES Publicaciones(Id)
 );
+
+CREATE TABLE Documentos (
+	Id int IDENTITY(1,1) NOT NULL,
+	UsuarioId int NOT NULL,
+	Nombre varchar(30),
+	Descripcion varchar(200),
+	Ruta varchar(200),
+	Valido bit DEFAULT 0
+	PRIMARY KEY (Id),
+	FOREIGN KEY (UsuarioId) REFERENCES Usuarios(Id)
+);
+

@@ -2,14 +2,14 @@
 using Dogat_backend_net_core.Utilities.Data;
 using System.Data;
 
-namespace Dogat_backend_net_core.Adapters
+namespace Dogat_backend_net_core.Adapters.Publicaciones
 {
     public class PaisesParser : Parser
     {
         public static Paises Parse(ref Paises paises, IDataReader reader)
         {
-            paises.Id = GetDataValue<int>(reader, "Id");
-            paises.Nombre = GetDataValue<string>(reader, "Nombre");
+            paises.id = GetDataValue<int>(reader, "Id");
+            paises.nombre = GetDataValue<string>(reader, "Nombre");
 
             return paises;
         }

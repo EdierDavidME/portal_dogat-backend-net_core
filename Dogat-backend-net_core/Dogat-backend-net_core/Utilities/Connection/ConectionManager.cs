@@ -9,7 +9,7 @@ namespace Dogat_backend_net_core.Utilities.Conection
 
         public bool Open()
         {
-            string ConnectionString = "";
+            string ConnectionString = "Data Source=DESKTOP-J49QAVM;Initial Catalog=DogatDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False";
 
             _connection = new SqlConnection(ConnectionString);
 

@@ -1,4 +1,4 @@
-﻿namespace Dogat_backend_net_core.Models
+﻿namespace Dogat_backend_net_core.Models.Publicaciones
 {
     public interface IPublicacionesAdapter
     {

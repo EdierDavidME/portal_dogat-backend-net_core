@@ -1,6 +1,8 @@
 ﻿using Autofac;
-using Dogat_backend_net_core.Adapters;
-using Dogat_backend_net_core.Models;
+using Dogat_backend_net_core.Adapters.Publicaciones;
+using Dogat_backend_net_core.Adapters.Usuarios;
+using Dogat_backend_net_core.Models.Publicaciones;
+using Dogat_backend_net_core.Models.Usuarios;
 
 namespace Dogat_backend_net_core.Config
 {
@@ -9,6 +11,7 @@ namespace Dogat_backend_net_core.Config
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<PublicacionesAdapter>().As<IPublicacionesAdapter>().InstancePerLifetimeScope();
+            builder.RegisterType<UsuariosAdapter>().As<IUsuariosAdapter>().InstancePerLifetimeScope();
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Dogat_backend_net_core.Models;
+using Dogat_backend_net_core.Models.Publicaciones;
 using Dogat_backend_net_core.Utilities.Conection;
 
-namespace Dogat_backend_net_core.Adapters
+namespace Dogat_backend_net_core.Adapters.Publicaciones
 {
     public class PublicacionesAdapter: IPublicacionesAdapter
     {
@@ -9,6 +10,26 @@ namespace Dogat_backend_net_core.Adapters
         public List<Paises> GetPaises()
         {
             List <Paises> listPaises = new List <Paises>();
+
+            string strQuery = "SELECT *From Paises";
+
+            ConectionManager objConnection = new ConectionManager();
+
+            using (var objDataReader = objConnection.GetDataReader(strQuery))
+            {
+                while (objDataReader.Read())
+                {
+                    Paises pais = new Paises();
+                    PaisesParser.Parse(ref pais, objDataReader);
+                    listPaises.Add(pais);
+                }
+            }
+            return listPaises;
+        }
+
+        public IEnumerable<Paises> GetPublicaciones()
+        {
+            List<Paises> listPaises = new List<Paises>();
 
             string strQuery = "SELECT *From Paises";
 

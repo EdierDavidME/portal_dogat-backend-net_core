@@ -23,5 +23,15 @@ namespace Dogat_backend_net_core.Utilities.Data
             else
                 return default(object);
         }
+
+        public static string DateToString(DateTime date)
+        {
+            return "{d '" + date.ToString("yyyy-MM-dd") + "'}";
+        }
+
+        public static string DateTimeToString(DateTime date)
+        {
+            return "{d '" + date.ToString("yyyy-MM-dd HH:mm:ss") + "'}";
+        }
     }
 }
